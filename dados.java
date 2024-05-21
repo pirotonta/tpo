@@ -39,7 +39,7 @@ public class dados{
      */
     public static void main(String[] args){
         String jugador1, jugador2;
-        int dado1, dado2, puntaje1, puntaje2;
+        int dado1, dado2, dado3, dado4, puntaje1, puntaje2;
 
         Scanner sc = new Scanner(System.in);
 
@@ -56,12 +56,12 @@ public class dados{
         System.out.println("Ingrese el nombre del segundo jugador: ");
         jugador2 = sc.next();
         System.out.println("Ingrese la tirada del segundo jugador, separando los números por un espacio: ");
-        dado1 = sc.nextInt();
-        dado2 = sc.nextInt();
+        dado3 = sc.nextInt();
+        dado4 = sc.nextInt();
 
-        if (!validarEntero(dado1) || !validarEntero(dado2)){
+        if (!validarEntero(dado3) || !validarEntero(dado4)){
             puntaje2 = 0;
-        } else puntaje2 = calcularPuntaje(dado1, dado2);
+        } else puntaje2 = calcularPuntaje(dado3, dado4);
 
         System.out.println("El puntaje de " + jugador1 + " es de: " + puntaje1 +
         "\nEl puntaje de " + jugador2 + " es de: " + puntaje2);
