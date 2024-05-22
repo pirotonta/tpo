@@ -1,9 +1,10 @@
 import java.util.Scanner;
 
-public class dados{
+public class elGranJuego{
 
     // modulos
     public static boolean validarEntero(int entero){
+        // verifica que el numero ingresado sea una tirada válida de dados (1-6)
         boolean valido;
 
         valido = false;
@@ -15,6 +16,7 @@ public class dados{
     }
 
     public static int calcularPuntaje(int dado1, int dado2){
+        // calcula el puntaje según los enteros ingresados
         int puntaje;
         puntaje = 0;
         
@@ -28,6 +30,7 @@ public class dados{
     }
 
     public static boolean esPar(int entero){
+        // verifica que el número entero ingresado sea par
         boolean par;
 
         par = false;
