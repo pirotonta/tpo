@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class dados{
 
+    // modulos
     public static boolean validarEntero(int entero){
         boolean valido;
 
@@ -15,11 +16,14 @@ public class dados{
 
     public static int calcularPuntaje(int dado1, int dado2){
         int puntaje;
-
-        if (esPar(dado1) && esPar(dado2)){
-            puntaje = dado1 * dado2;
-        } else puntaje = dado1 + dado2;
-
+        puntaje = 0;
+        
+        if (validarEntero(dado1) && validarEntero(dado2)){
+            if (esPar(dado1) && esPar(dado2)){
+                puntaje = dado1 * dado2;
+            } else puntaje = dado1 + dado2;
+        }
+        
         return puntaje;
     }
 
@@ -34,9 +38,7 @@ public class dados{
         return par;
     }
 
-    /**
-     * @param args
-     */
+    // principal
     public static void main(String[] args){
         String jugador1, jugador2;
         int dado1, dado2, dado3, dado4, puntaje1, puntaje2;
@@ -48,20 +50,14 @@ public class dados{
         System.out.println("Ingrese la tirada del primer jugador, separando los números por un espacio: ");
         dado1 = sc.nextInt();
         dado2 = sc.nextInt();
-
-        if (!validarEntero(dado1) || !validarEntero(dado2)){
-            puntaje1 = 0;
-        } else puntaje1 = calcularPuntaje(dado1, dado2);
+        puntaje1 = calcularPuntaje(dado1, dado2);
 
         System.out.println("Ingrese el nombre del segundo jugador: ");
         jugador2 = sc.next();
         System.out.println("Ingrese la tirada del segundo jugador, separando los números por un espacio: ");
         dado3 = sc.nextInt();
         dado4 = sc.nextInt();
-
-        if (!validarEntero(dado3) || !validarEntero(dado4)){
-            puntaje2 = 0;
-        } else puntaje2 = calcularPuntaje(dado3, dado4);
+        puntaje2 = calcularPuntaje(dado3, dado4);
 
         System.out.println("El puntaje de " + jugador1 + " es de: " + puntaje1 +
         "\nEl puntaje de " + jugador2 + " es de: " + puntaje2);
@@ -73,9 +69,5 @@ public class dados{
         } else System.out.println("Empate!");
         
     }
-
-
-
-
 
 }
