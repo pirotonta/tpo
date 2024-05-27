@@ -65,11 +65,13 @@ public class elGranJuego{
         System.out.println("El puntaje de " + jugador1 + " es de: " + puntaje1 +
         "\nEl puntaje de " + jugador2 + " es de: " + puntaje2);
 
-        if (puntaje1 > puntaje2){
-            System.out.println("El ganador es " + jugador1 + "!");
-        } else if (puntaje1 < puntaje2){
-            System.out.println("El ganador es " + jugador2 + "!");
-        } else System.out.println("Empate!");
+        if (puntaje1 == puntaje2){
+            System.out.println("Empate!");
+        } else {
+            if (puntaje1 > puntaje2){
+                System.out.println("El ganador es " + jugador1 + "!");
+            } else System.out.println("El ganador es " + jugador2 + "!");
+        }
         
     }
 
