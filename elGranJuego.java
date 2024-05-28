@@ -20,10 +20,18 @@ public class elGranJuego{
         int puntaje;
         puntaje = 0;
         
-        if (validarEntero(dado1) && validarEntero(dado2)){
+        if (validarDado(dado1) && validarDado(dado2)){
             if (esPar(dado1) && esPar(dado2)){
                 puntaje = dado1 * dado2;
             } else puntaje = dado1 + dado2;
+        } else {
+            if (!validarDado(dado1) && !validarDado(dado2)){
+                puntaje = 0;
+            } else{
+                if (!validarDado(dado1)){
+                    puntaje = dado2;
+                } else puntaje = dado1;
+            }
         }
         
         return puntaje;
