@@ -18,7 +18,6 @@ public class elGranJuego{
     public static int calcularPuntaje(int dado1, int dado2){
         // calcula el puntaje según los enteros ingresados
         int puntaje;
-        puntaje = 0;
         
         if (validarDado(dado1) && validarDado(dado2)){
             if (esPar(dado1) && esPar(dado2)){
