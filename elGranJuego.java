@@ -19,13 +19,13 @@ public class elGranJuego{
         // calcula el puntaje según los enteros ingresados
         int puntaje;
         
-        if (validarDado(dado1) && validarDado(dado2)){
-            if (esPar(dado1) && esPar(dado2)){
-                puntaje = dado1 * dado2;
-            } else puntaje = dado1 + dado2;
-        } else {
-            if (!validarDado(dado1) && !validarDado(dado2)){
-                puntaje = 0;
+        puntaje = 0;
+
+        if (validarDado(dado1) || validarDado(dado2)){
+            if (validarDado(dado1) && validarDado(dado2)){
+                if (esPar(dado1) && esPar(dado2)){
+                    puntaje = dado1 * dado2;
+                } else puntaje = dado1 + dado2;
             } else{
                 if (!validarDado(dado1)){
                     puntaje = dado2;
