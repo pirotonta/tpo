@@ -51,34 +51,73 @@ public class elGranJuego{
     // principal
     public static void main(String[] args){
         String jugador1, jugador2;
-        int dado1, dado2, dado3, dado4, puntaje1, puntaje2;
+        int dado1, dado2, dado3, dado4, puntaje1, puntaje2, puntajeRonda; 
+        int rondaMayorPuntaje1, rondaMayorPuntaje2, mayorPuntaje1, mayorPuntaje2, i, j;
 
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Ingrese el nombre del primer jugador: ");
         jugador1 = sc.next();
-        System.out.println("Ingrese la tirada del primer jugador, separando los números por un espacio: ");
-        dado1 = sc.nextInt();
-        dado2 = sc.nextInt();
-        puntaje1 = calcularPuntaje(dado1, dado2);
-
         System.out.println("Ingrese el nombre del segundo jugador: ");
         jugador2 = sc.next();
-        System.out.println("Ingrese la tirada del segundo jugador, separando los números por un espacio: ");
-        dado3 = sc.nextInt();
-        dado4 = sc.nextInt();
-        puntaje2 = calcularPuntaje(dado3, dado4);
+        puntaje1 = 0;
+        puntaje2 = 0;
+        rondaMayorPuntaje1 = 0;
+        rondaMayorPuntaje2 = 0;
+        mayorPuntaje1 = 0;
+        mayorPuntaje2 = 0;
+        i = 0;
+        j = 0;
 
-        System.out.println("El puntaje de " + jugador1 + " es de: " + puntaje1 +
-        "\nEl puntaje de " + jugador2 + " es de: " + puntaje2);
+        do{
+            if (puntaje1 < 50 && puntaje2 < 50){
+                do{
+                    System.out.println("Ingrese las tiradas del primer jugador, separando los números por un espacio: ");
+                    dado1 = sc.nextInt();
+                    dado2 = sc.nextInt();
+                    puntajeRonda = calcularPuntaje(validarDado(dado1), validarDado(dado2));
+                    puntaje1 += puntajeRonda;
+                    System.out.println("Puntaje actual: " + puntaje1);
+                    i++;
+                    if (puntajeRonda > mayorPuntaje1){
+                        mayorPuntaje1 = puntajeRonda;
+                        rondaMayorPuntaje1 = i;
+                    }
+                } while (puntaje1 < 50 && !sonIguales(dado1, dado2));
+            };
 
-        if (puntaje1 == puntaje2){
-            System.out.println("Empate!");
-        } else {
+            if (puntaje1 < 50 && puntaje2 < 50){
+                do{
+                    System.out.println("Ingrese la tirada del segundo jugador, separando los números por un espacio: ");
+                    dado3 = sc.nextInt();
+                    dado4 = sc.nextInt();
+                    puntajeRonda = calcularPuntaje(validarDado(dado3), validarDado(dado4));
+                    puntaje2 += puntajeRonda;
+                    System.out.println("Puntaje actual: " + puntaje2);
+                    j++;
+                    if (puntajeRonda > mayorPuntaje2){
+                        mayorPuntaje2 = puntaje2;
+                        rondaMayorPuntaje2 = j;
+                    }
+                } while (puntaje2 < 50 && !sonIguales(dado3, dado4));
+            }
+        } while (puntaje1 < 50 && puntaje2 < 50);
+
+    if (puntaje1 == puntaje2){
+            System.out.println("Empate! El puntaje final de ambos jugadores es de " + puntaje1);
+        } else{
             if (puntaje1 > puntaje2){
-                System.out.println("El ganador es " + jugador1 + "!");
-            } else System.out.println("El ganador es " + jugador2 + "!");
+                System.out.println("El ganador es " + jugador1 + "! Su puntaje acumulado es de " + puntaje1 + " puntos.");
+            } else System.out.println("El ganador es " + jugador2 + "! Su puntaje acumulado es de " + puntaje2 + " puntos.");
         }
+
+        System.out.println(
+            "El mayor puntaje de " + jugador1 + " fue de " + mayorPuntaje1 + " en la ronda " + rondaMayorPuntaje1 + "!"
+        );
+
+        System.out.println(
+            "El mayor puntaje de " + jugador2 + " fue de " + mayorPuntaje2 + " en la ronda " + rondaMayorPuntaje2 + "!"
+        );
         
     }
 
