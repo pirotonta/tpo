@@ -84,21 +84,21 @@ public class elGranJuego{
                 }
             } while (puntaje1 < 50 && !sonIguales(dado1, dado2));
 
-            if (puntaje1 < 50 && puntaje2 < 50){
-                do{
-                    System.out.println("Ingrese la tirada del segundo jugador, separando los números por un espacio: ");
-                    dado3 = sc.nextInt();
-                    dado4 = sc.nextInt();
-                    puntajeRonda = calcularPuntaje(validarDado(dado3), validarDado(dado4));
-                    puntaje2 += puntajeRonda;
-                    System.out.println("Puntaje actual: " + puntaje2);
-                    j++;
-                    if (puntajeRonda > mayorPuntaje2){
-                        mayorPuntaje2 = puntaje2;
-                        rondaMayorPuntaje2 = j;
-                    }
-                } while (puntaje2 < 50 && !sonIguales(dado3, dado4));
-            }
+        
+            do{
+                System.out.println("Ingrese la tirada del segundo jugador, separando los números por un espacio: ");
+                dado3 = sc.nextInt();
+                dado4 = sc.nextInt();
+                puntajeRonda = calcularPuntaje(validarDado(dado3), validarDado(dado4));
+                puntaje2 += puntajeRonda;
+                System.out.println("Puntaje actual: " + puntaje2);
+                j++;
+                if (puntajeRonda > mayorPuntaje2){
+                    mayorPuntaje2 = puntaje2;
+                    rondaMayorPuntaje2 = j;
+                }
+            } while (puntaje2 < 50 && !sonIguales(dado3, dado4));
+            
         } while (puntaje1 < 50 && puntaje2 < 50);
 
     if (puntaje1 == puntaje2){
