@@ -94,7 +94,7 @@ public class elGranJuego{
                 System.out.println("Puntaje actual: " + puntaje2);
                 j++;
                 if (puntajeRonda > mayorPuntaje2){
-                    mayorPuntaje2 = puntaje2;
+                    mayorPuntaje2 = puntajeRonda;
                     rondaMayorPuntaje2 = j;
                 }
             } while (puntaje2 < 50 && !sonIguales(dado3, dado4));
