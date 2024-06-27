@@ -101,8 +101,8 @@ public class elGranJuego{
             
         } while (puntaje1 < 50 && puntaje2 < 50);
 
-    if (puntaje1 == puntaje2){
-            System.out.println("Empate! El puntaje final de ambos jugadores es de " + puntaje1);
+    if (puntaje1 >= 50 && puntaje2 >= 50){
+            System.out.println("Empate! Ambos alcanzaron 50 puntos. \n/////PUNTAJE FINAL/////\n"+ jugador1 +": "+ puntaje1 + " puntos.\n" + jugador2 + ": " + puntaje2 + " puntos.");
         } else{
             if (puntaje1 > puntaje2){
                 System.out.println("El ganador es " + jugador1 + "! Su puntaje acumulado es de " + puntaje1 + " puntos.");
